@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "vitest --globals"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/E-K8/js-testing-practice/issues"
   },
-  "homepage": "https://github.com/E-K8/js-testing-practice#readme"
+  "homepage": "https://github.com/E-K8/js-testing-practice#readme",
+  "devDependencies": {
+    "vitest": "^0.25.1"
+  }
 }
