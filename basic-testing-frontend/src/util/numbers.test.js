@@ -25,6 +25,17 @@ it('should transform a string number to a number of type number', () => {
 //   expect(result).toBeTypeOf('number');
 // });
 
+it('should transform a string number to a number of type number', () => {
+  // Arrange
+  const input = '2';
+
+  // Act
+  const result = transformToNumber(input);
+
+  // Assert
+  expect(result).toBe(+input);
+});
+
 it('should yield 0 if there is no value provided', () => {
   // Arrange
   const value = '';
@@ -40,10 +51,13 @@ it('should yield 0 if there is no value provided', () => {
 it('should yield NaN for non-transformable values', () => {
   // Arrange
   const input = 'invalid';
+  const input2 = {};
 
   // Act
   const result = transformToNumber(input);
+  const result2 = transformToNumber(input2);
 
   // Assert
   expect(result).toBeNaN();
+  expect(result2).toBeNaN();
 });
