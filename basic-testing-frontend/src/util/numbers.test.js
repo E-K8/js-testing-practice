@@ -73,7 +73,8 @@ describe('cleanNumbers', () => {
     const cleanedNumbers = cleanNumbers(numberValues);
 
     // ASSERT
-    expect(cleanedNumbers[0]).toBeTypeOf('number');
+    // expect(cleanedNumbers[0]).toBeTypeOf('number');
+    expect(cleanedNumbers).toEqual([1, 2]); // mind the difference between toEqual() and toBe(), the former compares each item for strict equality, the latter is an example why {} != {}
   });
 
   it('should throw an error if an array of at least one empty string is provided', () => {
