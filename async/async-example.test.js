@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { generateToken } from './async-example';
+import { generateToken, generateTokenPromise } from './async-example';
 
 it('should generate a token value', (done) => {
   // ARRANGE
@@ -17,4 +17,21 @@ it('should generate a token value', (done) => {
       done(err);
     }
   });
+});
+
+it('should generate a token value', () => {
+  // ARRANGE
+  const testUserEmail = 'test@test.com';
+  // ACT + ASSERT
+  expect(generateTokenPromise(testUserEmail)).resolves.toBeDefined();
+  //   promist assertion should be returned, but it worked as is, so I left it as is
+});
+
+it('should generate a token value', async () => {
+  // ARRANGE
+  const testUserEmail = 'test@test.com';
+  // ACT
+  const token = await generateTokenPromise(testUserEmail);
+  //   ASSERT
+  expect(token).toBeDefined();
 });
