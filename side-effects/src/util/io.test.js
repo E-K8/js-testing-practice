@@ -1,10 +1,15 @@
-import { it, expect } from 'vitest';
+import { it, expect, vi } from 'vitest';
+import { promises as fs } from 'fs';
 import writeData from './io';
+vi.mock('fs'); // test.txt won't be created, all functions will be replaced with empty modules, we no longer will get back a promise that gets resolved
 
 it('should execute the writeFile method', () => {
   const testData = 'Test';
   const testFilename = 'test.txt';
-  expect(writeData(testData, testFilename)).resolves.toBeUndefined();
+
+  writeData(testData, testFilename);
+  // expect(writeData(testData, testFilename)).resolves.toBeUndefined();
+  expect(fs.writeFile).toBeCalled();
 });
 
 // side effect here could be creation or deletion of files that we don't intend to have on the system or vice versa
