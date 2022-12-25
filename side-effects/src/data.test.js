@@ -5,6 +5,8 @@ describe('generate report data()', () => {
   it('should execute logFn if provided', () => {
     const logger = vi.fn(); // creates an empty function that keeps track of executions of that function and arguments that were provided with those calls
 
+    // logger.mockImplementationOnce(() => {});
+
     generateReportData(logger);
 
     expect(logger).toBeCalled();
